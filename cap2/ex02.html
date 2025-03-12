@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Filmes</h1>
+    <main> 
+     <form id="filmForm">
+        <div class="titulo">
+            <p>Titulo do filme</p>
+            <input type="text" maxlength="500" id="inTitulo">
+        </div>
+        <div class="min">
+            <p>Duração(min)</p>
+            <input type="number" id="inDuracao" name="inDuracao">
+        </div>
+        <input type="submit" value="converter" id="submit"> 
+     </form>
+    </main>
+    <h2></h2>
+    <h3></h3>
+    <script>
+       const form = document.querySelector("#filmForm");
+       const resp1 = document.querySelector("h2")
+       const resp2= document.querySelector("h3")
+
+       form.addEventListener("submit", (e) =>{
+        e.preventDefault()
+        const titulo =form.querySelector("#inTitulo").value;
+        const duracao = Number(form.querySelector("#inDuracao").value)
+
+        const horas = Math.floor(duracao/60)
+        const minutos = duracao % 60
+
+        resp1.innerText = titulo
+        resp2.innerText = `${horas} hora(S) e ${minutos} minuto(s)`
+       }) 
+
+    </script>
+</body>
+</html>

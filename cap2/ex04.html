@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>farmacia</title>
+    <style>
+        body{
+            background-color: rgb(0, 0, 0);
+            justify-content: center;
+            align-items: center;
+        }
+        h1{
+            color: white;
+            margin-top: 50px;
+            display: flex;
+            justify-content: center;
+        }
+        .form{
+            display: flex;
+            color: white;
+            flex-direction: column;
+            position: fixed;
+            align-items: center;
+            width: 200px;
+            padding: 20px;
+            border-radius: 8px;
+            top: 20%;
+            left: 41%;
+        }
+
+        h2, p{
+            color:white
+        }
+    </style>
+</head>
+<body>
+    <h1>farmacia</h1>
+    <form class="form">
+        <label>Medicamento</label>
+        <input type="text" maxlength="80" required id="medicamento">
+        <label>Preço R$:</label>
+        <input type="number" id="preco" required step="0.01">
+        <input type="submit" id="envio">
+    </form>
+    <h2></h2>
+    <p></p>
+    <script>
+        const form = document.querySelector(".form");
+        const resposta1 = document.querySelector("h2");
+        const resposta2 = document.querySelector("p");
+
+        form.addEventListener("submit", (e)=> {
+            const nome = form.querySelector("#medicamento").value;
+            const preco = Number(form.querySelector("#preco").value);
+
+            const leve2 = preco * 2;
+            const desconto = Math.floor(leve2);
+
+            resposta1.innerText = `promoção de ${nome}`
+            resposta2.innerText = `leve 2 por ${desconto}`
+
+            e.preventDefault();
+        })
+    </script>
+</body>
+</html>

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>restaurante</title>
+    <style>
+        body{
+            display: flex;
+        }
+        h1{
+            padding: 10px 0 0 10px;
+            display: flex;
+            flex-direction: column;
+        }
+        .form{
+            display: flex;
+            flex-direction: column;
+            padding: 10px 0 0 10px;
+            gap: 10px;
+        }
+    </style>
+</head>
+<body>
+    <h1>restaurante por kg</h1>
+    <form class="form">
+    <label>Preço por quilo</label>
+    <input type="number" id="quilo" min="0" required>
+    <label>Consumo do cliente em gramas:</label>
+    <input type="number" id="gramas" min="0" required>
+    <input type="submit" value="calcular">
+    </form>
+
+    <h3 id="preco"></h3>
+
+</body>
+<script>
+    const form = document.querySelector("form");
+    const valor = document.querySelector("h3");
+
+    form.addEventListener("submit", (e) =>{
+        e.preventDefault()
+        const quilo = Number(form.quilo.value)
+        const gramas = Number(form.gramas.value)
+        const calculog = (quilo/ 1000) * gramas
+
+        valor.innerText = `o preço da refeição é de RS:${calculog.toFixed(2)}`;
+    })
+
+</script>
+</html>
